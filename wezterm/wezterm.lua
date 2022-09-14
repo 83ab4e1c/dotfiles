@@ -4,6 +4,8 @@ return {
   initial_rows = 26,
   font = wezterm.font_with_fallback({
     'Operator Mono Book',
+    'Operator Mono Medium',
+    -- 'ComicMono Nerd Font',
     'LXGWWenKaiMono Nerd Font',
   }),
   font_size = 18,
