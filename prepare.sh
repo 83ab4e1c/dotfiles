@@ -13,7 +13,18 @@ fi
 
 sudo apt update && sudo apt upgrade -y
 if [[ -f /usr/bin/plasmashell ]]; then
+  sudo apt install -y zsh zsh-autosuggestions zsh-syntax-highlighting golang nodejs npm python3-pip wget curl unzip
   sudo apt install -y fcitx5 fcitx5-config-qt fcitx5-pinyin i3 feh rofi kitty
+  sudo chsh -s /usr/bin/zsh mdd
+
+  npm config set registry https://mirrors.huaweicloud.com/repository/npm/
+  sudo npm config set registry https://mirrors.huaweicloud.com/repository/npm/
+  pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+  sudo pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+  go env -w GO111MODULE=on
+  go env -w GOPROXY=https://goproxy.cn,direct
+  sudo go env -w GO111MODULE=on
+  sudo go env -w GOPROXY=https://goproxy.cn,direct
 
   TAG=$(curl -sS https://github.com/kovidgoyal/kitty | grep -Po '(?<=\>version ).*(?=<\/)')
   URL="https://github.com/kovidgoyal/kitty/releases/download/v${TAG}/kitty-${TAG}-x86_64.txz"
@@ -21,8 +32,6 @@ if [[ -f /usr/bin/plasmashell ]]; then
   tar -xf kitty-${TAG}-x86_64.txz -C /usr
 fi
 
-sudo apt install -y zsh zsh-autosuggestions zsh-syntax-highlighting golang nodejs npm python3-pip wget curl unzip
-sudo chsh -s /usr/bin/zsh mdd
 # install nvim
 wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
 sudo apt install -y ./nvim-linux64.deb
@@ -32,11 +41,3 @@ if [[ -f /usr/bin/i3 ]]; then
   echo -e "xrdb -merge ~/.Xresources \nexec i3" > ~/.xinitrc
 fi
 
-npm config set registry https://mirrors.huaweicloud.com/repository/npm/
-sudo npm config set registry https://mirrors.huaweicloud.com/repository/npm/
-pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-sudo pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-go env -w GO111MODULE=on
-go env -w GOPROXY=https://goproxy.cn,direct
-sudo go env -w GO111MODULE=on
-sudo go env -w GOPROXY=https://goproxy.cn,direct
