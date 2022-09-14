@@ -16,6 +16,8 @@ if [[ -f /usr/bin/plasmashell ]]; then
   sudo apt install -y zsh zsh-autosuggestions zsh-syntax-highlighting golang nodejs npm python3-pip wget curl unzip
   sudo apt install -y fcitx5 fcitx5-config-qt fcitx5-pinyin i3 feh rofi kitty
   sudo chsh -s /usr/bin/zsh mdd
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git
+  sudo mv powerlevel10k /usr/share/
 
   npm config set registry https://mirrors.huaweicloud.com/repository/npm/
   sudo npm config set registry https://mirrors.huaweicloud.com/repository/npm/
@@ -36,8 +38,8 @@ fi
 wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
 sudo apt install -y ./nvim-linux64.deb
 
-if [[ -f /usr/bin/i3 ]]; then
-  echo "Xft.dpi: 192" > ~/.Xresources
-  echo -e "xrdb -merge ~/.Xresources \nexec i3" > ~/.xinitrc
-fi
+#if [[ -f /usr/bin/i3 ]]; then
+#  echo "Xft.dpi: 192" > ~/.Xresources
+#  echo -e "xrdb -merge ~/.Xresources \nexec i3" > ~/.xinitrc
+#fi
 
