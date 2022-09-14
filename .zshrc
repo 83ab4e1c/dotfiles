@@ -50,10 +50,10 @@ alias ll="ls -lh --color=auto"
 alias la="ls -Alh --color=auto"
 alias reload="source ~/.zshrc"
 alias vim="nvim"
-# wsl
-alias proxy="export http_proxy=http://192.168.1.4:7890;export https_proxy=http://192.168.1.4:7890"
+# virtual machine
+alias vp="export http_proxy=http://192.168.1.4:7890;export https_proxy=http://192.168.1.4:7890"
 # physical machine
-#alias proxy="export http_proxy=http://127.0.0.1:7890;export https_proxy=http://127.0.0.1:7890"
+alias pp="export http_proxy=http://127.0.0.1:7890;export https_proxy=http://127.0.0.1:7890"
 alias unproxy="unset http_proxy;unset https_proxy"
 alias update="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"
 # environment variable
