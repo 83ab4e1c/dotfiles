@@ -8,7 +8,7 @@ return {
     -- 'ComicMono Nerd Font',
     'LXGWWenKaiMono Nerd Font',
   }),
-  font_size = 18,
+  font_size = 14,
   enable_tab_bar = false,
   window_padding = {
     left = 0,

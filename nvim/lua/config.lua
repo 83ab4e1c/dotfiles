@@ -1,11 +1,5 @@
 local config = {}
 
-function config.catppuccin()
-  vim.g.catppuccin_flavour = 'macchiato'
-  require('catppuccin').setup()
-  vim.cmd('colorscheme catppuccin')
-end
-
 function config.zephyr()
   vim.cmd('colorscheme zephyr')
 end
@@ -403,40 +397,39 @@ end
 
 function config.lspsaga()
   require('lspsaga').init_lsp_saga({
-    -- only support nightly
-    --symbol_in_winbar = {
-      --  enable = true,
-      --},
-    })
-  end
+    symbol_in_winbar = {
+      enable = true,
+    },
+  })
+end
 
-  function config.nvim_cmp()
-    local cmp = require("cmp")
-    if not cmp then return end
-    cmp.setup({
-      preselect = cmp.PreselectMode.Item,
-      formatting = {
-        fields = {"abbr", "kind", "menu"},
-      },
-      mapping = cmp.mapping.preset.insert({
-        ["<C-p>"] = cmp.mapping.select_prev_item(),
-        ["<C-n>"] = cmp.mapping.select_next_item(),
-        ["<C-Space>"] = cmp.mapping.complete(),
-        ["<C-e>"] = cmp.mapping.abort(),
-        ["<Tab>"] = cmp.mapping.confirm({ select = true }),
-      }),
-      snippet = {
-        expand = function(args)
-          vim.fn["vsnip#anonymous"](args.body)
-        end
-      },
-      sources = cmp.config.sources({
-        {name = "nvim_lsp"},
-        {name = "vsnip"},
-        {name = "buffer"},
-        {name = "path"},
-      }),
-    })
-  end
+function config.nvim_cmp()
+  local cmp = require("cmp")
+  if not cmp then return end
+  cmp.setup({
+    preselect = cmp.PreselectMode.Item,
+    formatting = {
+      fields = {"abbr", "kind", "menu"},
+    },
+    mapping = cmp.mapping.preset.insert({
+      ["<C-p>"] = cmp.mapping.select_prev_item(),
+      ["<C-n>"] = cmp.mapping.select_next_item(),
+      ["<C-Space>"] = cmp.mapping.complete(),
+      ["<C-e>"] = cmp.mapping.abort(),
+      ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+    }),
+    snippet = {
+      expand = function(args)
+        vim.fn["vsnip#anonymous"](args.body)
+      end
+    },
+    sources = cmp.config.sources({
+      {name = "nvim_lsp"},
+      {name = "vsnip"},
+      {name = "buffer"},
+      {name = "path"},
+    }),
+  })
+end
 
-  return config
+return config
