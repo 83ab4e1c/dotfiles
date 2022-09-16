@@ -4,7 +4,7 @@ filetype indent on
 set t_Co=256
 set number
 set cursorline
-set colorcolumn=81
+set colorcolumn=80
 set showmode
 set showcmd
 set encoding=utf-8
@@ -23,6 +23,7 @@ set smartcase
 set incsearch
 set nobackup
 set noswapfile
+set nowrap
 set foldmethod=indent
 set foldlevelstart=99
 

@@ -45,6 +45,7 @@ vim.opt.backup = false
 vim.opt.writebackup = false
 vim.opt.swapfile = false
 vim.opt.shiftround = true
+vim.opt.wrap = false
 vim.opt.timeout = true
 vim.opt.ttimeout = true
 vim.opt.timeoutlen = 500
