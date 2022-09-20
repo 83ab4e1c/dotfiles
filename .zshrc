@@ -60,14 +60,14 @@ alias update="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"
 . "$HOME/.cargo/env"
 
 case ":${PATH}:" in
-    *:"$HOME/.zig":*)
-        ;;
-    *)
-        export PATH="$HOME/.zig:$HOME/go/bin:$PATH"
-        ;;
+  *:"$HOME/.zig":*)
+    ;;
+  *)
+    export PATH="$HOME/.zig:$HOME/go/bin:$PATH"
+    ;;
 
-esac
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+  esac
+  # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
