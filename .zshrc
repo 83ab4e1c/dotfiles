@@ -9,7 +9,8 @@ fi
 setopt histignorealldups sharehistory
 
 # Use emacs keybindings even if our EDITOR is set to vi
-bindkey -v
+#bindkey -v
+bindkey -e
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
@@ -49,7 +50,8 @@ alias ls="ls --color=auto"
 alias ll="ls -lh --color=auto"
 alias la="ls -Alh --color=auto"
 alias reload="source ~/.zshrc"
-alias vim="nvim"
+alias vi="nvim"
+alias em="emacs -nw"
 # virtual machine
 alias vp="export http_proxy=http://192.168.1.4:7890;export https_proxy=http://192.168.1.4:7890"
 # physical machine
