@@ -1,7 +1,7 @@
 local wezterm = require("wezterm");
 return {
-  initial_cols = 100,
-  initial_rows = 26,
+  initial_cols = 120,
+  initial_rows = 30,
   font = wezterm.font_with_fallback({
     'Operator Mono Book',
     'Operator Mono Medium',
