@@ -34,10 +34,8 @@ init() {
 symbol_link() {
   if [[ -e $2 ]]; then
     rm $2
-    ln -s $1 $2
-  else
-    ln -s $1 $2
   fi
+  ln -s $1 $2
 }
 
 symbol_link ~/.dotfiles/.zshrc ~/.zshrc
