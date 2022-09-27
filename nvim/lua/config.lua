@@ -356,14 +356,14 @@ function config.nvim_lsp()
       source = true,
     },
   })
-  lspconfig.sumneko_lua.setup{
+  lspconfig.sumneko_lua.setup({
     settings = {
       Lua = {
         runtime = {
           version = "LuaJIT",
         },
         diagnostics = {
-          globals = {"vim"},
+          globals = { "vim" },
         },
         workspace = {
           library = vim.api.nvim_get_runtime_file("", true),
@@ -373,26 +373,26 @@ function config.nvim_lsp()
         },
       },
     },
-  }
-  lspconfig.clangd.setup{}
-  lspconfig.pyright.setup{}
-  lspconfig.gopls.setup{}
-  lspconfig.rust_analyzer.setup{}
-  lspconfig.jdtls.setup{}
-  lspconfig.zls.setup{}
+  })
+  lspconfig.clangd.setup({})
+  lspconfig.pyright.setup({})
+  lspconfig.gopls.setup({})
+  lspconfig.rust_analyzer.setup({})
+  lspconfig.jdtls.setup({})
+  lspconfig.zls.setup({})
 
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
-  lspconfig.html.setup{
+  lspconfig.html.setup({
     capabilities = capabilities,
-  }
-  lspconfig.jsonls.setup{
+  })
+  lspconfig.jsonls.setup({
     capabilities = capabilities,
-  }
-  lspconfig.cssls.setup{
+  })
+  lspconfig.cssls.setup({
     capabilities = capabilities,
-  }
-  lspconfig.tsserver.setup{}
+  })
+  lspconfig.tsserver.setup({})
 end
 
 function config.lspsaga()
@@ -409,7 +409,7 @@ function config.nvim_cmp()
   cmp.setup({
     preselect = cmp.PreselectMode.Item,
     formatting = {
-      fields = {"abbr", "kind", "menu"},
+      fields = { "abbr", "kind", "menu" },
     },
     mapping = cmp.mapping.preset.insert({
       ["<C-p>"] = cmp.mapping.select_prev_item(),
@@ -424,10 +424,10 @@ function config.nvim_cmp()
       end
     },
     sources = cmp.config.sources({
-      {name = "nvim_lsp"},
-      {name = "vsnip"},
-      {name = "buffer"},
-      {name = "path"},
+      { name = "nvim_lsp" },
+      { name = "vsnip" },
+      { name = "buffer" },
+      { name = "path" },
     }),
   })
 end

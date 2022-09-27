@@ -26,6 +26,7 @@ set noswapfile
 set nowrap
 set foldmethod=indent
 set foldlevelstart=99
+set background=dark
 
 highlight specialkey cterm=none ctermfg=darkgrey ctermbg=none
 highlight cursorline cterm=none ctermfg=none ctermbg=none

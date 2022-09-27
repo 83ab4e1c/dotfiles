@@ -1,5 +1,5 @@
 local conf = require('config')
-local packer_path= vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local packer_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 local compile_path = packer_path .. "/plugin/packer_compiled.lua"
 local state = vim.loop.fs_stat(packer_path)
 if not state then
@@ -8,8 +8,8 @@ if not state then
   vim.cmd('packadd packer.nvim')
 end
 
-return require('packer').startup({function(use)
-  use {'wbthomason/packer.nvim'}
+return require('packer').startup({ function(use)
+  use { 'wbthomason/packer.nvim' }
   use {
     'glepnir/zephyr-nvim',
     config = conf.zephyr
@@ -22,7 +22,7 @@ return require('packer').startup({function(use)
   }
   use {
     'lukas-reineke/indent-blankline.nvim',
-    event = {'BufRead', 'BufNewFile'},
+    event = { 'BufRead', 'BufNewFile' },
     config = conf.indent_blankline,
   }
   use {
@@ -33,7 +33,7 @@ return require('packer').startup({function(use)
   }
   use {
     'akinsho/nvim-bufferline.lua',
-    event = {'BufRead', 'BufNewFile'},
+    event = { 'BufRead', 'BufNewFile' },
     config = conf.nvim_bufferline,
     requires = 'kyazdani42/nvim-web-devicons'
   }
@@ -44,9 +44,9 @@ return require('packer').startup({function(use)
   }
   use {
     'lewis6991/gitsigns.nvim',
-    event = {'BufRead', 'BufNewFile'},
+    event = { 'BufRead', 'BufNewFile' },
     config = conf.gitsigns,
-    requires = {'nvim-lua/plenary.nvim', opt = true},
+    requires = { 'nvim-lua/plenary.nvim', opt = true },
   }
   use {
     'nvim-telescope/telescope.nvim',
@@ -60,13 +60,13 @@ return require('packer').startup({function(use)
   }
   use {
     'nvim-treesitter/nvim-treesitter',
-    event = {'BufRead', 'BufNewFile'},
+    event = { 'BufRead', 'BufNewFile' },
     run = ':TSUpdate',
     config = conf.nvim_treesitter,
   }
   use {
     'glepnir/coman.nvim',
-    event = {'BufRead', 'BufNewFile'},
+    event = { 'BufRead', 'BufNewFile' },
   }
   use {
     'williamboman/mason.nvim',
@@ -87,25 +87,24 @@ return require('packer').startup({function(use)
     event = 'InsertEnter',
     config = conf.nvim_cmp,
     requires = {
-      {'hrsh7th/cmp-nvim-lsp', after = 'nvim-lspconfig'},
-      {'hrsh7th/cmp-buffer', after = 'nvim-cmp'},
-      {'hrsh7th/cmp-path', after = 'nvim-cmp'},
-      {'hrsh7th/cmp-vsnip', after = 'nvim-cmp'},
-      {'hrsh7th/vim-vsnip', after = 'nvim-cmp'},
+      { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-lspconfig' },
+      { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-vsnip', after = 'nvim-cmp' },
+      { 'hrsh7th/vim-vsnip', after = 'nvim-cmp' },
     },
   }
   if not state then
     require('packer').sync()
   end
 end,
-config = {
-  compile_path = compile_path,
-  display = {
-    open_fn = require('packer.util').float,
-  },
-  git = {
-    clone_timeout = 60,
-  },
-}
+  config = {
+    compile_path = compile_path,
+    display = {
+      open_fn = require('packer.util').float,
+    },
+    git = {
+      clone_timeout = 60,
+    },
+  }
 })
-
