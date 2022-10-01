@@ -19,7 +19,6 @@ vim.g.loaded_netrwSettings = 1
 vim.g.loaded_netrwFileHandlers = 1
 --
 vim.opt.termguicolors = true
-vim.opt.mouse = 'a'
 vim.opt.hidden = true
 vim.opt.encoding = 'utf-8'
 vim.opt.clipboard = 'unnamedplus'
