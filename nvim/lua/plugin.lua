@@ -10,9 +10,14 @@ end
 
 return require('packer').startup({ function(use)
   use { 'wbthomason/packer.nvim' }
+  -- use {
+  --   'glepnir/zephyr-nvim',
+  --   config = conf.zephyr
+  -- }
   use {
-    'glepnir/zephyr-nvim',
-    config = conf.zephyr
+    'catppuccin/nvim',
+    as = 'catppuccin',
+    config = conf.catppuccin,
   }
   use {
     'glepnir/galaxyline.nvim',

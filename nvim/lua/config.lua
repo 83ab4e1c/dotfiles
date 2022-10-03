@@ -4,6 +4,12 @@ function config.zephyr()
   vim.cmd('colorscheme zephyr')
 end
 
+function config.catppuccin()
+  vim.g.catppuccin_flavour = "latte"
+  require("catppuccin").setup()
+  vim.cmd('colorscheme catppuccin')
+end
+
 function config.galaxyline()
   local status_ok, galaxyline = pcall(require, 'galaxyline')
   if not status_ok then
@@ -11,8 +17,9 @@ function config.galaxyline()
   end
 
   local colors = require('galaxyline.theme').default
-  -- eviline bg adaptation to catppuccin theme
-  -- colors.bg = '#1e2030'
+  -- eviline bg and fg adaptation to catppuccin theme
+  colors.bg = '#E6E9EF'
+  colors.fg = '#4C4F69'
   local condition = require('galaxyline.condition')
   local gls = galaxyline.section
   galaxyline.short_line_list = { 'NvimTree', 'vista', 'dbui', 'packer' }
@@ -396,11 +403,7 @@ function config.nvim_lsp()
 end
 
 function config.lspsaga()
-  require('lspsaga').init_lsp_saga({
-    symbol_in_winbar = {
-      enable = true,
-    },
-  })
+  require('lspsaga').init_lsp_saga({})
 end
 
 function config.nvim_cmp()
