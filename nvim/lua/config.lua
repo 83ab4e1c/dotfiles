@@ -17,9 +17,6 @@ function config.galaxyline()
   end
 
   local colors = require('galaxyline.theme').default
-  -- eviline bg and fg adaptation to catppuccin theme
-  colors.bg = '#E6E9EF'
-  colors.fg = '#4C4F69'
   local condition = require('galaxyline.condition')
   local gls = galaxyline.section
   galaxyline.short_line_list = { 'NvimTree', 'vista', 'dbui', 'packer' }
