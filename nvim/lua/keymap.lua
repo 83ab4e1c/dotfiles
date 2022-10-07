@@ -12,10 +12,12 @@ map('n', '<leader>4', '<cmd>BufferLineGoToBuffer 4<cr>', { noremap = true, silen
 map('n', '[b', '<cmd>bn<cr>', { noremap = true, silent = true })
 map('n', ']b', '<cmd>bp<cr>', { noremap = true, silent = true })
 -- select window
-map('n', '<c-h>', '<c-w><c-h>', { noremap = true, silent = true })
-map('n', '<c-j>', '<c-w><c-j>', { noremap = true, silent = true })
-map('n', '<c-k>', '<c-w><c-k>', { noremap = true, silent = true })
-map('n', '<c-l>', '<c-w><c-l>', { noremap = true, silent = true })
+map('n', '<c-h>', '<c-w>h', { noremap = true, silent = true })
+map('n', '<c-j>', '<c-w>j', { noremap = true, silent = true })
+map('n', '<c-k>', '<c-w>k', { noremap = true, silent = true })
+map('n', '<c-l>', '<c-w>l', { noremap = true, silent = true })
+map('n', '<a-[>', '<cmd>vertical resize -5<cr>', { noremap = true, silent = true })
+map('n', '<a-]>', '<cmd>vertical resize +5<cr>', { noremap = true, silent = true })
 -- select to end
 map('n', 'Y', 'y$', { noremap = true, silent = true })
 -- insert move
