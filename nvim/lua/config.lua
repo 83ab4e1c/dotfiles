@@ -326,8 +326,10 @@ function config.nvim_treesitter()
   vim.api.nvim_command('set foldmethod=expr')
   vim.api.nvim_command('set foldexpr=nvim_treesitter#foldexpr()')
   require('nvim-treesitter.configs').setup({
-    ensure_installed = 'all',
-    ignore_install = { 'phpdoc', 'vala', 'tiger', 'slint', 'eex' },
+    ensure_installed = {
+      'c', 'cpp', 'go', 'lua', 'rust', 'python', 'regex', 'cmake', 'ninja',
+      'make', 'bash', 'css', 'html', 'tsx', 'typescript', 'vue',
+    },
     highlight = {
       enable = true,
     },
