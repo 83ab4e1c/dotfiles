@@ -18,8 +18,6 @@ map('n', '<c-k>', '<c-w>k', { noremap = true, silent = true })
 map('n', '<c-l>', '<c-w>l', { noremap = true, silent = true })
 map('n', '<a-[>', '<cmd>vertical resize -5<cr>', { noremap = true, silent = true })
 map('n', '<a-]>', '<cmd>vertical resize +5<cr>', { noremap = true, silent = true })
--- select to end
-map('n', 'Y', 'y$', { noremap = true, silent = true })
 -- insert move
 map('i', '<a-h>', '<left>', { noremap = true, silent = true })
 map('i', '<a-j>', '<down>', { noremap = true, silent = true })
