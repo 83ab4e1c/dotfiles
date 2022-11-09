@@ -336,10 +336,6 @@ function config.nvim_treesitter()
   })
 end
 
-function config.mason()
-  require('mason').setup()
-end
-
 function config.nvim_lsp()
   local lspconfig = require("lspconfig")
   local signs = {
@@ -381,15 +377,10 @@ function config.nvim_lsp()
   lspconfig.pyright.setup({})
   lspconfig.gopls.setup({})
   lspconfig.rust_analyzer.setup({})
-  lspconfig.jdtls.setup({})
-  lspconfig.zls.setup({})
 
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
   lspconfig.html.setup({
-    capabilities = capabilities,
-  })
-  lspconfig.jsonls.setup({
     capabilities = capabilities,
   })
   lspconfig.cssls.setup({

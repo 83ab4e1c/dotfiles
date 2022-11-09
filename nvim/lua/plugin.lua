@@ -14,11 +14,6 @@ return require('packer').startup({ function(use)
     'glepnir/zephyr-nvim',
     config = conf.zephyr
   }
-  -- use {
-  --   'catppuccin/nvim',
-  --   as = 'catppuccin',
-  --   config = conf.catppuccin,
-  -- }
   use {
     'glepnir/galaxyline.nvim',
     branch = 'main',
@@ -74,12 +69,7 @@ return require('packer').startup({ function(use)
     event = { 'BufRead', 'BufNewFile' },
   }
   use {
-    'williamboman/mason.nvim',
-    config = conf.mason
-  }
-  use {
     'neovim/nvim-lspconfig',
-    after = 'mason.nvim',
     config = conf.nvim_lsp,
   }
   use {

@@ -61,10 +61,10 @@ alias update="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"
 . "$HOME/.cargo/env"
 
 case ":${PATH}:" in
-  *:"$HOME/.zig":*)
+  *:"/usr/local/lua_lsp/bin":*)
     ;;
   *)
-    export PATH="$HOME/.zig:$HOME/go/bin:$PATH"
+    export PATH="/usr/local/lua_lsp/bin:$HOME/go/bin:$PATH"
     ;;
 
   esac
