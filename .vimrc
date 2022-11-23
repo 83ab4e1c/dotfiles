@@ -26,6 +26,7 @@ set noswapfile
 set nowrap
 set foldmethod=indent
 set foldlevelstart=99
+set fillchars=eob:\ 
 set background=dark
 
 highlight specialkey cterm=none ctermfg=darkgrey ctermbg=none
@@ -49,3 +50,6 @@ inoremap <silent> <a-k> <up>
 inoremap <silent> <a-l> <right>
 
 autocmd InsertLeave *.* write
+
+
+

@@ -51,7 +51,7 @@ alias la="ls -Alh --color=auto"
 alias reload="source ~/.zshrc"
 alias vi="nvim"
 # virtual machine
-alias vp="export http_proxy=http://192.168.1.4:7890;export https_proxy=http://192.168.1.4:7890"
+alias vp="export http_proxy=http://192.168.0.102:7890;export https_proxy=http://192.168.0.102:7890"
 # physical machine
 alias pp="export http_proxy=http://127.0.0.1:7890;export https_proxy=http://127.0.0.1:7890"
 alias up="unset http_proxy;unset https_proxy"
