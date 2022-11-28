@@ -1,6 +1,14 @@
 #! /usr/bin/bash
 
-init() {
+symbol_link() {
+  if [[ -e $2 ]]; then
+    rm $2
+  fi
+  ln -s $1 $2
+}
+
+if [[ ! -e $HOME/.placeholder ]]; then
+  touch $HOME/.placeholder
   if [[ $http_proxy == ""  ]]; then
     if [[ $(ip a | grep "36") ]]; then
       export http_proxy=http://192.168.1.4:7890
@@ -29,14 +37,7 @@ init() {
   go env -w GOPROXY=https://goproxy.cn,direct
   sudo go env -w GO111MODULE=on
   sudo go env -w GOPROXY=https://goproxy.cn,direct
-}
-
-symbol_link() {
-  if [[ -e $2 ]]; then
-    rm $2
-  fi
-  ln -s $1 $2
-}
+fi
 
 symbol_link ~/.dotfiles/.zshrc ~/.zshrc
 symbol_link ~/.dotfiles/.p10k.zsh ~/.p10k.zsh
