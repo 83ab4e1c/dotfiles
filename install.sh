@@ -7,8 +7,8 @@ symbol_link() {
   ln -s $1 $2
 }
 
-if [[ ! -e $HOME/.placeholder ]]; then
-  touch $HOME/.placeholder
+if [[ ! -e $HOME/.flag ]]; then
+  touch $HOME/.flag
   if [[ $http_proxy == ""  ]]; then
     if [[ $(ip a | grep "36") ]]; then
       export http_proxy=http://192.168.1.4:7890
@@ -21,7 +21,6 @@ if [[ ! -e $HOME/.placeholder ]]; then
 
   sudo cp -r ~/.dotfiles/fonts/* /usr/share/fonts
   sudo fc-cache
-
   sudo apt update && sudo apt upgrade -y
   sudo apt install -y zsh zsh-autosuggestions zsh-syntax-highlighting golang nodejs npm python3-pip wget curl unzip
   wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
