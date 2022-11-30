@@ -11,8 +11,8 @@ if [[ ! -e $HOME/.flag ]]; then
   touch $HOME/.flag
   if [[ $http_proxy == ""  ]]; then
     if [[ $(ip a | grep "36") ]]; then
-      export http_proxy=http://192.168.1.4:7890
-      export https_proxy=http://192.168.1.4:7890
+      export http_proxy=http://192.168.0.102:7890
+      export https_proxy=http://192.168.0.102:7890
     else
       export http_proxy=http://127.0.0.1:7890
       export https_proxy=http://127.0.0.1:7890
