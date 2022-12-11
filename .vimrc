@@ -36,18 +36,14 @@ highlight linenr  cterm=none ctermfg=darkgrey ctermbg=none
 highlight cursorlinenr cterm=none ctermfg=cyan ctermbg=none
 highlight listchars cterm=none ctermfg=darkgrey ctermbg=none
 
-nnoremap <silent> [b :bnext<cr>
-nnoremap <silent> ]b :bprevious<cr>
+nnoremap [b :bnext<cr>
+nnoremap ]b :bprevious<cr>
 
-nnoremap <silent> <c-h> <c-w>h
-nnoremap <silent> <c-j> <c-w>j
-nnoremap <silent> <c-k> <c-w>k
-nnoremap <silent> <c-l> <c-w>l
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
 
-inoremap <silent> <a-h> <left>
-inoremap <silent> <a-j> <down>
-inoremap <silent> <a-k> <up>
-inoremap <silent> <a-l> <right>
 
 autocmd InsertLeave *.* write
 

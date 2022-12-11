@@ -4,12 +4,6 @@ function config.zephyr()
   vim.cmd('colorscheme zephyr')
 end
 
-function config.catppuccin()
-  vim.g.catppuccin_flavour = "latte"
-  require("catppuccin").setup()
-  vim.cmd('colorscheme catppuccin')
-end
-
 function config.galaxyline()
   local status_ok, galaxyline = pcall(require, 'galaxyline')
   if not status_ok then
@@ -263,9 +257,15 @@ function config.galaxyline()
 end
 
 function config.indent_blankline()
-  require("indent_blankline").setup {
+  local state, indent_blankline = pcall(require, "indent_blankline")
+  if not state then
+    vim.notify("indent_blankline not found!")
+    return
+  end
+  -- require("indent_blankline").setup {
     -- show_current_context = true,
-  }
+  -- }
+  indent_blankline.setup {}
 end
 
 function config.nvim_bufferline()

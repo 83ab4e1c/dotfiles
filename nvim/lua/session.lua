@@ -1,9 +1,9 @@
 local fn, api, loop = vim.fn, vim.api, vim.loop
-local session_directory = '~/.cache/nvim/session'
 local is_windows = #vim.fn.windowsversion() > 0
 local path_sep = is_windows and '\\' or '/'
 local session = {}
 local home = loop.os_homedir()
+local session_directory = home .. '/.cache/nvim/session'
 
 local msg_dict = {
     save = 'Session %s is now persistent',
