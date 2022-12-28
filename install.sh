@@ -38,11 +38,11 @@ if [[ ! -e $HOME/.flag ]]; then
   sudo go env -w GOPROXY=https://goproxy.cn,direct
 fi
 
-symbol_link ~/.dotfiles/.zshrc ~/.zshrc
-symbol_link ~/.dotfiles/.p10k.zsh ~/.p10k.zsh
-symbol_link ~/.dotfiles/.vimrc ~/.vimrc
-symbol_link ~/.dotfiles/.tmux.conf ~/.tmux.conf
-symbol_link ~/.dotfiles/.gitconfig ~/.gitconfig
-symbol_link ~/.dotfiles/nvim ~/.config/nvim
-symbol_link ~/.dotfiles/kitty ~/.config/kitty
-symbol_link ~/.dotfiles/wezterm ~/.config/wezterm
+symbol_link $(pwd)/.zshrc ~/.zshrc
+symbol_link $(pwd)/.p10k.zsh ~/.p10k.zsh
+symbol_link $(pwd)/.vimrc ~/.vimrc
+symbol_link $(pwd)/.tmux.conf ~/.tmux.conf
+symbol_link $(pwd)/.gitconfig ~/.gitconfig
+symbol_link $(pwd)/nvim ~/.config/nvim
+symbol_link $(pwd)/kitty ~/.config/kitty
+symbol_link $(pwd)/wezterm ~/.config/wezterm

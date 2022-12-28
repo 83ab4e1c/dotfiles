@@ -290,16 +290,15 @@ function config.autopairs()
   require("nvim-autopairs").setup()
 end
 
+function config.autotag()
+  require('nvim-ts-autotag').setup()
+end
+
 function config.gitsigns()
   require("gitsigns").setup()
 end
 
 function config.telescope()
-  if not packer_plugins['plenary.nvim'].loaded then
-    vim.cmd('packadd plenary.nvim')
-    vim.cmd('packadd telescope-fzy-native.nvim')
-    vim.cmd('packadd telescope-file-browser.nvim')
-  end
   require('telescope').setup({
     defaults = {
       layout_config = {
@@ -334,6 +333,10 @@ function config.nvim_treesitter()
       enable = true,
     },
   })
+end
+
+function config.mason()
+  require('mason').setup()
 end
 
 function config.nvim_lsp()

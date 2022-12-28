@@ -1,105 +1,40 @@
 local conf = require('config')
-local packer_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-local compile_path = packer_path .. "/plugin/packer_compiled.lua"
-local state = vim.loop.fs_stat(packer_path)
-if not state then
-  local cmd = '!git clone https://github.com/wbthomason/packer.nvim ' .. packer_path
-  vim.cmd(cmd)
-  vim.cmd('packadd packer.nvim')
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "--single-branch",
+    "https://github.com/folke/lazy.nvim.git",
+    lazypath,
+  })
 end
+vim.opt.runtimepath:prepend(lazypath)
 
-return require('packer').startup({ function(use)
-  use { 'wbthomason/packer.nvim' }
-  use {
-    'glepnir/zephyr-nvim',
-    config = conf.zephyr
-  }
-  use {
-    'glepnir/galaxyline.nvim',
-    branch = 'main',
-    config = conf.galaxyline,
-    requires = 'kyazdani42/nvim-web-devicons',
-  }
-  use {
-    'lukas-reineke/indent-blankline.nvim',
-    event = { 'BufRead', 'BufNewFile' },
-    config = conf.indent_blankline,
-  }
-  use {
-    'kyazdani42/nvim-tree.lua',
-    cmd = 'NvimTreeToggle',
-    config = conf.nvim_tree,
-    requires = 'kyazdani42/nvim-web-devicons',
-  }
-  use {
-    'akinsho/nvim-bufferline.lua',
-    event = { 'BufRead', 'BufNewFile' },
-    config = conf.nvim_bufferline,
-    requires = 'kyazdani42/nvim-web-devicons'
-  }
-  use {
-    'windwp/nvim-autopairs',
-    event = 'InsertEnter',
-    config = conf.autopairs,
-  }
-  use {
-    'lewis6991/gitsigns.nvim',
-    event = { 'BufRead', 'BufNewFile' },
-    config = conf.gitsigns,
-    requires = { 'nvim-lua/plenary.nvim', opt = true },
-  }
-  use {
-    'nvim-telescope/telescope.nvim',
-    cmd = 'Telescope',
-    config = conf.telescope,
-    requires = {
-      { 'nvim-lua/plenary.nvim', opt = true },
-      { 'nvim-telescope/telescope-fzy-native.nvim', opt = true },
-      { 'nvim-telescope/telescope-file-browser.nvim', opt = true },
-    },
-  }
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    event = { 'BufRead', 'BufNewFile' },
-    run = ':TSUpdate',
-    config = conf.nvim_treesitter,
-  }
-  use {
-    'glepnir/coman.nvim',
-    event = { 'BufRead', 'BufNewFile' },
-  }
-  use {
-    'neovim/nvim-lspconfig',
-    config = conf.nvim_lsp,
-  }
-  use {
-    'glepnir/lspsaga.nvim',
-    after = 'nvim-lspconfig',
-    config = conf.lspsaga,
-  }
-  use {
-    'hrsh7th/nvim-cmp',
-    event = 'InsertEnter',
-    config = conf.nvim_cmp,
-    requires = {
-      { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-lspconfig' },
-      { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
-      { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
-      { 'hrsh7th/cmp-vsnip', after = 'nvim-cmp' },
-      { 'hrsh7th/vim-vsnip', after = 'nvim-cmp' },
-    },
-  }
-  if not state then
-    require('packer').sync()
-  end
-end,
-  config = {
-    compile_path = compile_path,
-    display = {
-      open_fn = require('packer.util').float,
-    },
-    git = {
-      clone_timeout = 60,
-    },
-  }
+require("lazy").setup({
+  { 'glepnir/zephyr-nvim', config = conf.zephyr},
+  { 'nvim-lua/plenary.nvim' },
+  { 'kyazdani42/nvim-web-devicons' },
+  { 'akinsho/bufferline.nvim', config = conf.nvim_bufferline },
+  { 'glepnir/galaxyline.nvim', config = conf.galaxyline },
+  { 'lukas-reineke/indent-blankline.nvim', config = conf.indent_blankline },
+  { 'kyazdani42/nvim-tree.lua', config = conf.nvim_tree },
+  { 'windwp/nvim-autopairs', config = conf.autopairs },
+  { 'lewis6991/gitsigns.nvim', config = conf.gitsigns },
+  { 'nvim-telescope/telescope.nvim', config = conf.telescope },
+  { 'nvim-telescope/telescope-fzy-native.nvim' },
+  { 'nvim-telescope/telescope-file-browser.nvim' },
+  { 'nvim-treesitter/nvim-treesitter', config = conf.nvim_treesitter },
+  { 'windwp/nvim-ts-autotag', config = conf.autotag },
+  { 'glepnir/coman.nvim' },
+  { 'williamboman/mason.nvim', config = conf.mason },
+  { 'neovim/nvim-lspconfig', config = conf.nvim_lsp },
+  { 'glepnir/lspsaga.nvim', config = conf.lspsaga },
+  { 'hrsh7th/nvim-cmp', config = conf.nvim_cmp },
+  { 'hrsh7th/cmp-nvim-lsp' },
+  { 'hrsh7th/cmp-buffer' },
+  { 'hrsh7th/cmp-path' },
+  { 'hrsh7th/cmp-vsnip' },
+  { 'hrsh7th/vim-vsnip' },
 })
